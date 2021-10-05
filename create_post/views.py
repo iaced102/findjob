@@ -1,11 +1,46 @@
-from django.shortcuts import render
-from post.models import Category_Job
+from django.shortcuts import render, redirect
+from post.models import Category_Job, Recruitment_Post, Review_Post
 from django.views.generic import TemplateView
 
 # Create your views here.
 
+class Create_Recruitment_Form(TemplateView):
+    template_name = 'create-recruitment-post.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = Category_Job.objects.all()
+        print(context)
+        return context
+
 def Create_Recruitment_Post(request):
     context = Category_Job.objects.all()
+    if request.method == 'POST':
+        type = request.POST.get('type')
+        print([str(a) for a in range(len(context))])
+        print(type)
+        if type in [str(a) for a in range(len(context))]:
+            category = Category_Job.objects.get(id=type)
+        else:
+            category = Category_Job.objects.create(name = type)
+            category.save()
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        rangewage = request.POST.get('range')
+        #post = Recruitment_Post.objects.create(title=title, content=content, range=rangewage, type=category)
+        return redirect('home')
 
-    if request.method == "GET":
-        return render(request, 'create-recruitment-post.html', context)
+
+
+#create review post
+
+class Create_Review_Post(TemplateView):
+    template_name = 'create-review-post.html'
+    
+    def get(self, request):
+        return render(request, 'create-review-post.html')
+    
+    def post(self, request):
+        title = request.POST.get('title')
+        content = request.POST.get("content")
+        #post = Review_Post.objects.create(title =title, content = content)
+        return redirect('home')
