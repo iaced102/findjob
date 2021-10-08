@@ -77,25 +77,23 @@
             else if(category_job==='')
                 {
                     window.alert("Bạn cần phải cung cấp thông tin về vị trí tuyển dụng")
-                    console.log(2)
                 }
             else if(range===''||/^-/.test(range)||/-$/.test(range))
                 {
                     window.alert("Bạn cần phải cung cấp thông tin về mức lương")
-                    console.log(3)
                 }
             else if(content==='')
                 {
                     window.alert("Nội dung của bài tuyển dụng không được để trống")
-                    console.log(4)
                 }
             else
                 {
+                    
                     $.ajax({
-                        url: '{% url "create_recruitment_post" %}',
+                        url: "{% url 'create_recruitment_post' %}",
                         type: "POST",
                         data: {
-                            'csrfmiddlewaretoken':'{{ csrf_token }}',
+                            'csrfmiddlewaretoken': '{{ csrf_token }}',
                             'title': title,
                             'range': range,
                             'content': content,

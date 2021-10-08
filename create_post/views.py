@@ -9,15 +9,15 @@ class Create_Recruitment_Form(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = Category_Job.objects.all()
-        print(context)
+        print(self.request.user)
         return context
 
 def Create_Recruitment_Post(request):
+    print('method nè, đọc đi',request.method)
     context = Category_Job.objects.all()
     if request.method == 'POST':
         type = request.POST.get('type')
-        print([str(a) for a in range(len(context))])
-        print(type)
+        print(request.user, 'user nè')
         if type in [str(a) for a in range(len(context))]:
             category = Category_Job.objects.get(id=type)
         else:
@@ -26,7 +26,8 @@ def Create_Recruitment_Post(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         rangewage = request.POST.get('range')
-        #post = Recruitment_Post.objects.create(title=title, content=content, range=rangewage, type=category)
+        user = request.user
+        post = Recruitment_Post.objects.create(title=title, content=content, range=rangewage, type=category, author = user)
         return redirect('home')
 
 

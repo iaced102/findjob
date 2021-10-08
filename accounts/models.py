@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from django.contrib.auth.models import AbstractUser, BaseUserManager, AbstractBaseUser
+'''
 class AccountsManage(BaseUserManager):
     def create_user(self, email, username, first_name, last_name, password = None):
         if not email:
@@ -34,46 +34,13 @@ class AccountsManage(BaseUserManager):
         user.is_superuser =True
         user.save(using = self._db)
         return user
+'''
+class User(AbstractUser):
+    display_name = models.CharField(max_length= 60)
 
-class User(AbstractBaseUser):
-    #fields what user enter
-    email               = models.EmailField(verbose_name='email', max_length=100, unique=True)
-    username            = models.CharField(max_length = 30, unique=True)
+    REQUIRED_FIELDS =['email', 'first_name', 'last_name']
 
-    # the real name what use to create auto email form
-    first_name          = models.CharField(max_length = 30)
-    last_name           = models.CharField(max_length = 30)
-
-    # the name what display when user create blog or comment
-    display_name        = models.CharField(max_length = 50)
-
-
-
-    #auto set
-    date_joined         = models.DateTimeField(verbose_name='date jointed', auto_now_add=True)
-    last_login          = models.DateTimeField(verbose_name='last login', auto_now=True)
-    is_admin            = models.BooleanField(default=False)
-    is_active           = models.BooleanField(default=True)
-    is_staff            = models.BooleanField(default=False)
-    is_superuser        = models.BooleanField(default=False)
-
-    # setup
-    #_________________________________________________________________________
-
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = [
-            'email',
-            'first_name',
-            'last_name'
-        ]
-
-    objects = AccountsManage()
 
     def __str__(self):
-        return self.username
-
-    def  has_perm(self,perm, obj = None):
-        return self.is_admin
+        return super().__str__()
     
-    def has_module_perms(self, app_label):
-        return True
