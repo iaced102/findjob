@@ -9,15 +9,12 @@ class Create_Recruitment_Form(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = Category_Job.objects.all()
-        print(self.request.user)
         return context
 
 def Create_Recruitment_Post(request):
-    print('method nè, đọc đi',request.method)
     context = Category_Job.objects.all()
     if request.method == 'POST':
         type = request.POST.get('type')
-        print(request.user, 'user nè')
         if type in [str(a) for a in range(len(context))]:
             category = Category_Job.objects.get(id=type)
         else:
@@ -26,8 +23,10 @@ def Create_Recruitment_Post(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         rangewage = request.POST.get('range')
+        company_name = request.POST.get('company_name')
+        location = request.POST.get('location')
         user = request.user
-        post = Recruitment_Post.objects.create(title=title, content=content, range=rangewage, type=category, author = user)
+        post = Recruitment_Post.objects.create(title=title, content=content, range=rangewage, type=category, author = user, company_name=company_name, locations=location)
         return redirect('home')
 
 
@@ -40,8 +39,10 @@ class Create_Review_Post(TemplateView):
     def get(self, request):
         return render(request, 'create-review-post.html')
     
+
     def post(self, request):
         title = request.POST.get('title')
+        user = self.request.user
         content = request.POST.get("content")
-        #post = Review_Post.objects.create(title =title, content = content)
+        post = Review_Post.objects.create(title =title, content = content, author = user)
         return redirect('home')

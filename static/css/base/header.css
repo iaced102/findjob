@@ -1,0 +1,16 @@
+.nav-bar
+    {
+        position: fixed;
+    }
+
+.nav-bar ul li
+    {
+        list-style-type: none;
+    }
+
+
+
+.nav-bar ul li a
+    {
+        text-decoration: none;
+    }

@@ -12,22 +12,26 @@ class Category_Job(models.Model):
 class Recruitment_Post(models.Model):
     type = models.ForeignKey(Category_Job, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete= models.CASCADE)
+    company_name = models.CharField(max_length=80, null=True)
+    locations = models.CharField(max_length=80, null=True)
     title = models.CharField(max_length= 60)
     range = models.CharField(max_length= 40)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
 
-    
-
     def __str__(self):
         return self.title
     
+
 
 class Recruitment_Comments(models.Model):
     post = models.ForeignKey(Recruitment_Post,on_delete= models.CASCADE)
     author = models.ForeignKey(User, on_delete= models.CASCADE)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
+
+
+
 
 #models review post
 
@@ -39,6 +43,9 @@ class Review_Post(models.Model):
     date = models.DateField(auto_now_add=True)
     rate = models.IntegerField(null=True)
     count_rate = models.IntegerField(null=True)
+    
+    def __str__(self):
+        return self.title
 
 class Review_Comments(models.Model):
     post = models.ForeignKey(Review_Post, on_delete=models.CASCADE)

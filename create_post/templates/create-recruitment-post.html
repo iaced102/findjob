@@ -1,9 +1,11 @@
 {% extends 'base/base.html'%}
+{% block title %}<title>Tuyển dụng nào!</title>{% endblock %}
 {% block content %}
     <div>
         <p>Tiêu đề cho bài tuyển dụng!</p>
         <input id='recruitment-title' placeholder="Tiêu đề bài tuyển dụng">
         <p>Bạn muốn tuyển dụng nhân viên cho vị trí nào?</p>
+
         <div id='type-category'>
             <select id='category-job'>
                 {% for type in category %}
@@ -11,6 +13,14 @@
                 {% endfor %}
             </select>
         </div>
+
+        <div>
+            <p>Công ty của bạn là gì</p>
+            <input type ='text' id = 'company_name'>
+        </div>
+
+        <p>Địa điểm làm việc ở đâu?</p>
+        <input type ='text' id = 'location'>
         <button id="change_category" onclick="change_category()">Công việc của bạn không nằm trong danh sách?</button>
 
         
@@ -69,6 +79,8 @@
             range = range.trim()
             var title = $("#recruitment-title").val().trim()
             var content = $("#recruitment-content").val().trim()
+            var company_name = $("#company_name").val().trim()
+            var location = $("#location").val().trim()
             if(title==='')
                 {
                     window.alert("Tiêu đề của bài tuyển dụng không được để trốn")
@@ -77,6 +89,14 @@
             else if(category_job==='')
                 {
                     window.alert("Bạn cần phải cung cấp thông tin về vị trí tuyển dụng")
+                }
+            else if(company_name==='')
+                {
+                    window.alert("Bạn cần phải cung cấp thông tin về công ty")
+                }
+            else if(location==='')
+                {
+                    window.alert("Bạn cần phải cung cấp địa chỉ làm việc")
                 }
             else if(range===''||/^-/.test(range)||/-$/.test(range))
                 {
@@ -95,6 +115,8 @@
                         data: {
                             'csrfmiddlewaretoken': '{{ csrf_token }}',
                             'title': title,
+                            'company_name': company_name,
+                            'location': location
                             'range': range,
                             'content': content,
                             'type': category_job
