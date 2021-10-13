@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from post.models import Category_Job, Recruitment_Post, Review_Post
 from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from post.models import Category_Job, Recruitment_Post, Review_Post
+
 
 # Create your views here.
 
-class Create_Recruitment_Form(TemplateView):
+class Create_Recruitment_Form(LoginRequiredMixin, TemplateView):
     template_name = 'create-recruitment-post.html'
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,7 +35,7 @@ def Create_Recruitment_Post(request):
 
 #create review post
 
-class Create_Review_Post(TemplateView):
+class Create_Review_Post(LoginRequiredMixin,TemplateView):
     template_name = 'create-review-post.html'
     
     def get(self, request):
@@ -41,6 +43,7 @@ class Create_Review_Post(TemplateView):
     
 
     def post(self, request):
+        print('POST nè :))')
         title = request.POST.get('title')
         user = self.request.user
         content = request.POST.get("content")

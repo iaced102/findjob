@@ -1,16 +1,24 @@
 {% extends 'base/pages/base.html'%}
+{% load static %}
+{% block title %}<title>Tìm việc</title>{% endblock %}
+{% block script %}<script src="{% static 'js/pages/home.js' %}"></script>{% endblock %}
 {% block content %}
     <div class='container'>
         <div class='home-header'>
             <h1>Tìm công việc mong muốn</h1>
             <p>Cách dễ nhất để tìm công việc mơ ước!!!</p>
             <div class='find-job'>
-                <input type="text" id="find-job">
-                <select id='category-job'>
-                    <option>
-                        
-                    </option>
+                <p>tìm kiếm nào:</p>
+                <input placeholder='vd: Phụ hồ, thợ chính...' type="text" id="find-job">
+            </div>
+            <div>
+                <select>
+                    {% for item in category_job%}
+                        <option>
+                        <option>{{ item.name }}</option>
+                    {% endfor %}
                 </select>
+                <button onclick ='home()'>home</button>
             </div>
         </div>
     </div>

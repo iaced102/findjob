@@ -1,13 +1,14 @@
-{% extends 'base/base.html' %}
+{% extends 'base/pages/base.html' %}
+{% block title %}<title>Tìm việc nào!</title>{% endblock %}
 {% block content %}
-    <body>
+    <div class='container'>
         {% for post in list_recruitments %}
-            <a href='#'>
+            <a href="{% url 'detail_recruitment' pk=post.id %}">
                 <h3>{{ post.title }}</h3>
                 <span>{{ post.range }}</span>
                 <span>{{ post.location }}</span>
                 <span>{{ post.company_name }}</span>
             </a>
         {% endfor %}
-    </body>
+    </div>
 {% endblock %}

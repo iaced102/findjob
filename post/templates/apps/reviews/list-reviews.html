@@ -1,0 +1,58 @@
+{% extends 'base/pages/base.html' %}
+{% load static %}
+{% block title %}<title>Top Review</title>{% endblock %}
+{% block script %}<script src="{% static 'js/apps/post/list-review.js' %}"></script>{% endblock %}
+{% block content%}
+    <div class='container'>
+        <h2>List Review</h2>
+        <div class='container' id='list-review'>
+            {% for post in list_reviews %}
+                <a href="{% url 'detail_review' pk=post.id %}">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.author}}</p>
+                    
+                    <span id='post-{{post.id}}-rate'>{{post.rate}}</span><span id='post-{{post.id}}-non-rate'></span>
+                
+            {% endfor %}
+            </div>
+        </a>
+    </div>
+    <script>
+        let replace_html =''
+        let replace_non_rate=''
+        let count_replace_non_rate =0
+        let check = 0
+        {% for post in list_reviews %}
+
+            check =0
+            replace_html =''
+            replace_non_rate=''
+            count_replace_non_rate =0
+
+
+            for(let i=0; i< parseInt($("#post-{{post.id}}-rate").html()); i++)
+                {
+                    replace_html += '<i class="fas fa-star"></i>'
+                }
+
+
+            count_replace_non_rate = parseInt($("#post-{{post.id}}-rate").html())
+            check = $("#post-{{post.id}}-rate").html().indexOf('.4') || $("#post-{{post.id}}-rate").html().indexOf('.5') || $("#post-{{post.id}}-rate").html().indexOf('.6') || $("#post-{{post.id}}-rate").html().indexOf('.7') || $("#post-{{post.id}}-rate").html().indexOf('.8') || $("#post-{{post.id}}-rate").html().indexOf('.9')
+            console.log(check)
+            if( check ===1)
+                {
+                    replace_html += '<i class="fas fa-star-half-alt"></i>'
+                    count_replace_non_rate +=1
+                }  
+                
+                
+            for(let i=count_replace_non_rate ;i<5 ;i++)
+                {
+                    replace_non_rate += '<i class="far fa-star"></i>'
+                }
+            $("#post-{{post.id}}-rate").html(replace_html)
+            $("#post-{{post.id}}-non-rate").html(replace_non_rate)
+        {% endfor %}
+    </script>
+{% endblock %}
+

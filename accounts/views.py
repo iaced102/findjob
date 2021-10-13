@@ -7,7 +7,6 @@ def Registration_view(request):
     context = {}
     if request.POST:
         form = RegistrationForm(request.POST)
-        print('form nè, đọc đi',form)
         if form.is_valid():
             form.save()
             password = form.cleaned_data.get('password1')
@@ -19,9 +18,6 @@ def Registration_view(request):
             context['registration_form'] = form
             return render(request, 'registrations/signup.html', context)
     else:
-        print('request is GET')
-        
         form = RegistrationForm()
-        print('form nè, đọc đi',form)
         context['registration_form'] = form
         return render(request, 'registrations/signup.html', context)

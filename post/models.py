@@ -41,8 +41,8 @@ class Review_Post(models.Model):
     title = models.CharField(max_length=60)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
-    rate = models.IntegerField(null=True)
-    count_rate = models.IntegerField(null=True)
+    rate = models.FloatField(default= 0)
+    count_rate = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
@@ -52,7 +52,7 @@ class Review_Comments(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
-    rate = models.IntegerField()
+    rate = models.IntegerField(null=True)
 
 class User_Rate(models.Model):
     post = models.ForeignKey(Review_Post, on_delete=models.CASCADE)

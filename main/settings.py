@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'post',
     "create_post",
+    'detailapp',
     'pages',
     
 ]

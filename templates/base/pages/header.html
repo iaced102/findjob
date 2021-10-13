@@ -1,9 +1,10 @@
 {% load static %}
-<header>
+
+<header class='header-nav-bar'>
     <nav class='nav-bar'>
         <ul>
             <li>
-                <a href='{{home}}'>
+                <a href="{% url 'home' %}">
                     <img class="rounded" src="{% static 'image/logo/logo.png' %}">
                 </a>
             </li>
@@ -15,8 +16,31 @@
             </li>
         </ul>
     </nav>
+
+    <nav class='menu-bar'>
+        <ul>
+            {% if user.is_authenticated %}
+
+
+                <li>
+                    <a href='#'><i class="fas fa-id-card"></i>Hồ sơ của bạn!</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a>
+                </li>
+
+
+            {% else %}
+
+
+                <li>
+                    <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Đăng nhập</a>
+                </li>
+
+
+            {% endif %}
+        </ul>
+    </nav>
 </header>
 
-<script>
-    console.log("{{ author.name }}")
-</script>

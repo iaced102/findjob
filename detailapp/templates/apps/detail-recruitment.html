@@ -1,0 +1,9 @@
+{% extends 'base/pages/base.html'%}
+{% block title %}<title>{{ recruitment_post.title }}</title>{% endblock %}
+{% block content %}
+    <div class='container'>
+        <h3>{{recruitment_post.title}}</h3>
+        <p>{{ recruitment_post.author }}</p>
+        <p>{{ recruitment_post.content }}</p>
+    </div>
+{% endblock %}

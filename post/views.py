@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Recruitment_Post
+from .models import Recruitment_Post, Review_Post
 from django.views.generic import TemplateView
 # Create your views here.
 class List_Recruitments(TemplateView):
@@ -18,5 +18,5 @@ class List_Reviews(TemplateView):
     list_reviews = [a for a in range(10)]
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['list_reviews'] = Recruitment_Post.objects.filter(id__in = self.list_reviews)
+        context['list_reviews'] = Review_Post.objects.filter(id__in = self.list_reviews)
         return context
