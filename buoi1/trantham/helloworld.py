@@ -8,4 +8,3 @@ print(b + complex(3,10))
 print(b.real)
 #lay phan ao
 print(b.imag)
-
