@@ -18,7 +18,7 @@ else :
         print ("x2 = " +str(x2))
     else :
         x3 = -b /(2*a)
-        print ("phuong trinh co nghiem kep x = " +str(x3))
+    print ("phuong trinh co nghiem kep x = " +str(x3))
     if delta < 0 :
         print ("phuong trinh vo nghiem")
     
