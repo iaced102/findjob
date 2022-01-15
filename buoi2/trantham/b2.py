@@ -28,6 +28,6 @@
 print("   \n -----------BANG CUU CHUONG------------\n")
 for i in range(1,10) :
 	print("\nBang Nhan " + str(i) + "\n")
-	for j in range(1,10) :
+	for j in range(1,11) :
 		a=i*j
 		print(str(i) + " x " + str(j) +" = "+ str(a))
