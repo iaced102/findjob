@@ -30,7 +30,7 @@
 #     if A[i]<min:
 #         min=A[i]
 
-#sap xep tang dan:
+#sap xep tang dan (sx lua chon):
 a=[1, 10, 8, 20, 31, 52,17, 24,9]
 for i in range(0,len(a)-1) :
     min = i
@@ -40,5 +40,28 @@ for i in range(0,len(a)-1) :
         tg = a[min]
         a[min] = a[i]
         a[i] = tg
-print("\nMang sap xep tang:")
+print("\nMang sap xep tang: (luachon)")
+print(a)
+
+#sap xep tang dan (sx noi bot):
+a=[1, 10, 8, 20, 31, 52,17, 24,9]
+for i in range(0, len(a)-1) :
+    for j in range(0, len(a)-i-1):
+        if a[j]>a[j+1] :
+            tg = a[j]
+            a[j] = a[j+1]
+            a[j+1] = tg
+print("\nMang sap xep tang:(noibot)")
+print(a)
+
+#sap xep tang dan:(sx chen)
+a=[1, 10, 8, 20, 31, 52,17, 24,9]
+for i in range(1, len(a)) :
+    tam = a[i]
+    j = i-1
+    while j>=0 & a[j]>tam :
+        a[j+1] = a[j]
+        j=j-1
+    a[j+1] = tam
+print("\nMang sap xep tang: (chen)")
 print(a)
