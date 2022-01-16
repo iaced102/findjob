@@ -15,4 +15,3 @@ else:
         print("pt co hai nghiem: x=")
         print("x1=",(-b+sqrt(delta))/(2*a))
         print("x2=",(-b-sqrt(delta))/(2*a))
-
