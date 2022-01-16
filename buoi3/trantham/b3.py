@@ -59,7 +59,7 @@ a=[1, 10, 8, 20, 31, 52,17, 24,9]
 for i in range(1, len(a)) :
     tam = a[i]
     j = i-1
-    while j>=0 & a[j]>tam :
+    while j>=0 and a[j]>tam :
         a[j+1] = a[j]
         j=j-1
     a[j+1] = tam

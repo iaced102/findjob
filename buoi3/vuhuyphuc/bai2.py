@@ -16,4 +16,5 @@ lặp theo vị trí chứ không lặp theo giá trị
 A=[1, 20, 19, -36, 54, 17, 89, 108, -82, 30]
 
 for i in range(len(A)-1):
-    print(i)
+    for x in A[i: len(A)]:
+        #tìm min, đổi vị trí ở đây
