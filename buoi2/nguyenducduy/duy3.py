@@ -8,21 +8,20 @@ ax^2 + bx +c = 0
 a = int(input("nhập giá trị a: "))
 b = int(input("nhập giá trị b: "))
 c = int(input("nhập giá trị c: "))
-delta = b**2-4*a*c
 if a==0:
-   if b==0:
-       print("phương trình vô nghiệm")
-   else:
-       print(x=-c/b)    
-   if c==0:
-       print("phương trình vô số nghiệm")    
-if delta >0:
-    x1=-b-sqrt(delta)/2*a
-    x2=-b+sqrt(delta)/2*a
-    print(x1,x2)
+    print("pt có 1 nghiệm duy nhất: x=",(-c/b))
 else:
-     print("pt vô nghiệm")   
-     
+    delta = b**2-4*a*c
+    if delta ==0:
+        print(" pt có nghiệm kép x=",(-b/(2*a)))
+    elif delta <0:
+        print("pt vô nghiệm")
+    else:
+        print("pt có 2 nghiệm: x=")
+        print("X1",(-b-sqrt(delta))/(2*a))
+        print("X2",(-b+sqrt(delta))/(2*a))
+
+    
 
        
        
