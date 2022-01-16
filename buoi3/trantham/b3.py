@@ -31,8 +31,6 @@
 #         min=A[i]
 
 #sap xep tang dan (sx lua chon):
-from operator import truediv
-
 
 a=[1, 10, 8, 20, 31, 52,17, 24,9]
 for i in range(0,len(a)-1) :
