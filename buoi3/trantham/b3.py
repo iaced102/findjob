@@ -13,8 +13,16 @@
 
 #Mang 2 chieu
 
-a=[ [1,2, [9,10]] , [3,4], [5,6], [7,8] ]
-print(a)
+# a=[ [1,2, [9,10]] , [3,4], [5,6], [7,8] ]
+# print(a)
 
-for i in a:
-    print(i)
+# for i in a:
+#     print(i)
+
+#sap xep tang dan:
+A=[1, 10, 8, 20, 31, 52,17, 24,9]
+min =A[0]
+for i in range(1,len(A)):
+    if A[i]<min:
+        min=A[i]
+print("Phan tu nho nhat : " + str(min))
