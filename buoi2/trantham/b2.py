@@ -65,6 +65,9 @@
 #         min=A[i]
 
 #sap xep tang dan (sx lua chon):
+from operator import truediv
+
+
 a=[1, 10, 8, 20, 31, 52,17, 24,9]
 for i in range(0,len(a)-1) :
     min = i
@@ -102,8 +105,17 @@ print(a)
 
 #kiem tra so chinh phuong
 a = int(input("Nhap vao 1 so nguyen: "))
+check = False
 for i in range(1, int(a/2)) :
-    if i**2 == a:
-       print(str(a) + " la so chinh phuong")
+    if i*i == a :
+        check = True
+        break
     else :
-        print(str(a) + " khong la so chinh phuong")
+        check = False
+if check == True :
+    print(str(a) + " la so chinh phuong")
+else :
+    print(str(a) + " khong la so chinh phuong")
+
+
+
