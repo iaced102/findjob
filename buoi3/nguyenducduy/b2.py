@@ -18,6 +18,6 @@ for b in range(len(A)-1):
     for c in A[b: len(A)]:
         if c < min :
             min =c 
-        A[0],A[b] = A[b],A[0]
+    A[0],A[b] = min,A[0]
 print("\nKết quả là:")
 print(A)
