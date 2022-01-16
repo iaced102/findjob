@@ -9,23 +9,15 @@ sắp xếp mảng A theo thứ tự tăng dần
 .......
 
 lặp theo vị trí chứ không lặp theo giá trị
-
 '''
 
 
 A=[1, 20, 19, -36, 54, 17, 89, 108, -82, 30]
-
-for i in range(len(A)):
-    min = A[i]
-    index_min = i
-    print(min)
-    for x in range(i,len(A)):
-        if A[x] < min:
-            min = A[x]
-            index_min = x
-            print(i, min)
-    #sau khi lặp xong vòng for, chúng ta có min là giá trị nhỏ nhất trong khoảng A[i: hết]
-    A[i], A[index_min] = A[index_min], A[i]
-    print(A)
-
-print(A)    
+for b in range(len(A)-1):
+    min = A[b]
+    for c in A[b: len(A)]:
+        if c < min :
+            min =c 
+    A[0],A[b] = min,A[0]
+print("\nKết quả là:")
+print(A)

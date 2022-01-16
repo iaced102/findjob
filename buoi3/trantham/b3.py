@@ -31,6 +31,7 @@
 #         min=A[i]
 
 #sap xep tang dan (sx lua chon):
+
 a=[1, 10, 8, 20, 31, 52,17, 24,9]
 for i in range(0,len(a)-1) :
     min = i
@@ -65,3 +66,18 @@ for i in range(1, len(a)) :
     a[j+1] = tam
 print("\nMang sap xep tang: (chen)")
 print(a)
+
+#kiem tra so chinh phuong
+print("\n\nKiem tra so chinh phuong")
+a = int(input("\nNhap vao 1 so nguyen: "))
+check = False
+for i in range(1, a+1) :
+    if i*i == a :
+        check = True
+        break
+    else :
+        check = False
+if check == True :
+    print(str(a) + " la so chinh phuong")
+else :
+    print(str(a) + " khong la so chinh phuong")

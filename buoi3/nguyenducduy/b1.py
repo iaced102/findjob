@@ -7,6 +7,7 @@ tìm giá trị nhỏ nhất của mảng
 A=[1, 20, 19, -36, 54, 17, 89, 108, -82, 30]
 '''
 
+'''
 from audioop import minmax
 
 
@@ -16,4 +17,13 @@ for i in A:
     print('i=',i, 'min =',min)
     if i <min:
         min = i
-print(i)        
+print(i)
+'''
+'''
+a =[1,2,3,4,5]
+a[0],a[4] = a[4],a[0]
+print(a)
+'''
+
+a = [0:3]
+print(a)
