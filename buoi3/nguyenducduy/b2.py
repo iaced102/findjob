@@ -9,12 +9,15 @@ sắp xếp mảng A theo thứ tự tăng dần
 .......
 
 lặp theo vị trí chứ không lặp theo giá trị
-
 '''
 
 
 A=[1, 20, 19, -36, 54, 17, 89, 108, -82, 30]
-
-for i in range(len(A)-1):
-    for x in A[i: len(A)]:
-        #tìm min, đổi vị trí ở đây
+for b in range(len(A)-1):
+    min = A[b]
+    for c in A[b: len(A)]:
+        if c < min :
+            min =c 
+        A[0],A[b] = A[b],A[0]
+print("\nKết quả là:")
+print(A)
