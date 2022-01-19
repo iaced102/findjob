@@ -10,6 +10,7 @@ default argument -> ngay sau position arguments
 keyword argument -> cuối cùng
 '''
 
+<<<<<<< HEAD
 '''
 viết một hàm kiểm tra số chính phương
 kiểm tra xem số a có phải số chính phương hay không
@@ -25,3 +26,6 @@ def ham():
     print(a)
 
 print(a)
+=======
+A=[1,3,5,7,9.25,28,40,32,50,29]
+>>>>>>> fec42b391af972a42bd1954cc031fc14a5dcf2ec
