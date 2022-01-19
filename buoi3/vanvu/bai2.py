@@ -6,7 +6,8 @@ for i in range(len(A)):
     for j in range(i, len(A)):
         if A[j] < min :
             min = A[j]   
-            index_min  = j
-print("\nMang sap xep theo thu tu tang dan: ")  
-A[i], A[index_min] = A[index_min], A[i]
-print(A)      
+            index_min  = j 
+    A[i], A[index_min] = A[index_min], A[i]
+    print(A)  
+
+print(A)        
