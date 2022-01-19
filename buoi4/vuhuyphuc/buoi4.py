@@ -87,3 +87,21 @@ for i in range(len(t)):
         a.append(t[index: len(t)])
 
 '''
+
+dicts = {
+    'dog': 'chó',
+    'cat': 'chuột',
+    'mouse': 'mèo'
+}
+
+print(dicts.keys())
+print(dicts.values())
+
+'''
+nhập vào các cặp key-value
+in ra các list
+[['dog','chó'], ['cat', 'chuột'], ['mouse', 'mèo']]
+def function(**kwargs):
+
+function(a=10, b=20, dog='mèo',)
+'''
