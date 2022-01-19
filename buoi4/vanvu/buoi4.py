@@ -1,6 +1,3 @@
-from ast import Break
-
-
 A=[1,3,5,7,9.25,28,40,32,50,29]
 
 for a in range(len(A)):
