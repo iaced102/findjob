@@ -6,6 +6,8 @@ lặp x từ 1 đến a/2 (nhớ ép kiểu cho a/2)
 nếu x**2 ==a
 => a là số chính phương
 '''
+
+
 '''
 nhập 1 số từ bàn phím, kiểm tra xem nó có phải số chính phwuong hay không
 viết chương trình, in ra 1 ma trận xoắn ốc
@@ -37,5 +39,4 @@ dưới -> trên
 append
 list comprehension
 chieu_dichuyen = [1,2,3,4]
-
 '''
