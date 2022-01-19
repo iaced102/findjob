@@ -57,7 +57,7 @@ def test2(*args):
     for a in args:
         print(a)
 
-def sample(position, *args,default=5, **kwargs):
+def sample(position, *args, default=5, **kwargs):
     print(position)
     print(default)
     print(args)
@@ -65,4 +65,16 @@ def sample(position, *args,default=5, **kwargs):
 
 
 
-sample(1,2,3,4,5,6,7,7,8,9, a=10, b=20)
+'''
+viết một hàm có 2 parameter 
+parameter 1: chuỗi cơ sở (t)
+parameter 2: chuỗi phân cách (o)
+
+mô phỏng split
+khởi tạo 1 list rỗng vd: a=[]
+khởi tạo 1 index =0
+lặp qua chuỗi (i) for i in range(len(t))
+nếu vị trí lặp của t == o
+chúng ta sẽ append t[index: i]
+index = i+1 
+'''
