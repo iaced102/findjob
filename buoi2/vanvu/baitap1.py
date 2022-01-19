@@ -8,7 +8,9 @@ c= int(input ("nhap gia tri c :"))
 print(c)
 delta = b**2 - 4*a*c
 if a==0 :
-    print ("phuong trinh co 1 nghiem x=" +str(x))
+    print("phuong trinh bac nhat :")
+    x = -c/b
+    print ("phuong trinh co 1 nghiem x =" +str(x))
 else :
     if delta > 0 :       
         print("phuong trinh co 2 nghiem phan biet :")
