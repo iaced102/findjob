@@ -21,4 +21,4 @@ def scp() :
         print(str(a) + " la so chinh phuong")
     else :
         print(str(a) + " khong la so chinh phuong")
-print(scp())
+scp()
