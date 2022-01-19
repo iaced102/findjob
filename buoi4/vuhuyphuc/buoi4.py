@@ -77,4 +77,13 @@ lặp qua chuỗi (i) for i in range(len(t))
 nếu vị trí lặp của t == o
 chúng ta sẽ append t[index: i]
 index = i+1 
+index = 0
+for i in range(len(t)):
+    if t[i] == o:
+        a.append(t[index: i])
+        index = i+1
+
+    if i == len(t) -1:
+        a.append(t[index: len(t)])
+
 '''
