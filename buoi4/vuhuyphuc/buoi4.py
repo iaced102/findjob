@@ -10,7 +10,6 @@ default argument -> ngay sau position arguments
 keyword argument -> cuối cùng
 '''
 
-<<<<<<< HEAD
 '''
 viết một hàm kiểm tra số chính phương
 kiểm tra xem số a có phải số chính phương hay không
@@ -21,10 +20,49 @@ nếu x**2 ==a
 def tenham(a)
 '''
 
-def ham():
-    a=10
+
+
+def sochinhphuong(a):
+    check = 0
+    for i in range(int(a/2)+1):
+        if i**2 ==a:
+            check =1
+            break
+    if check ==1:
+        print(a, ' la so chinh phuong')
+    else:
+        print(a, ' khong phai so chinh phuong')
+
+#sochinhphuong(4)
+
+
+
+dicts = {
+    'dog': 'chó',
+    'cat': 'chuột',
+    'mouse': 'mèo'
+}
+
+
+def in_ra(a):
     print(a)
 
-print(a)
-=======
-A=[1,3,5,7,9.25,28,40,32,50,29]
+
+def test(**dicts):
+    for a in dicts:
+        print(dicts[a])
+
+
+def test2(*args):
+    for a in args:
+        print(a)
+
+def sample(position, *args,default=5, **kwargs):
+    print(position)
+    print(default)
+    print(args)
+    print(kwargs)
+
+
+
+sample(1,2,3,4,5,6,7,7,8,9, a=10, b=20)
