@@ -13,11 +13,14 @@ lặp theo vị trí chứ không lặp theo giá trị
 
 
 A=[1, 20, 19, -36, 54, 17, 89, 108, -82, 30]
-for b in range(len(A)-1):
+for b in range(len(A)):
     min = A[b]
-    for c in A[b: len(A)]:
-        if c < min :
-            min =c 
-        A[0],A[b] = A[b],A[0]
+    index_min =1
+    for c in range(b,len(A)):
+        if A[c] < min :
+            min = A[c]
+            index_min = c
+    A[index_min],A[b] = A[b],A[index_min]
+    print(A)
 print("\nKết quả là:")
 print(A)
