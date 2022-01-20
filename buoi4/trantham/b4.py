@@ -63,7 +63,41 @@ sample(1,2,3,4,5,6, a=10, b=12)
 # a='lap trinh python'
 # print(a.split())
 
+def demo_split(t, p):
+    a=[]
+    index = 0
+    
+    for i in range(len(a)) :
+        if a[i] == p :
+            a.append(t[index: i])   
+            index = i+1 
+        if i == len(t)-1 :
+            a.append(t[index : len(t)])
+    
+demo_split('xin chao cac ban', " ")
 
+
+# function split1(string, parameter1, limit) {
+#         var result = [];
+#         var word = "";
+#         for (var i = 0; i < string.length; i++) {
+#           if (parameter1 == undefined) {
+#             return string;
+#           } else if (parameter1 == "''") {
+#             console.log("check1");
+#             result = result.push(string[i]);
+#           } else {
+#             if (string[i] != parameter1) {
+#               word += string[i];
+#             } else {
+#               result.push(word);
+#               word = "";
+#             }
+#           }
+#         }
+#         console.log("check", result.slice(0, limit));
+#         return result.slice(0, limit);
+#       }
 
 def demo_split(string, parameter1) :
     result = []
