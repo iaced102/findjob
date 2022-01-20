@@ -114,4 +114,32 @@ def demo_split(string, parameter1) :
                 result.append(word)
                 word=''
     return result
-print(demo_split('xin chao cac ban ', " "))
+print(demo_split('xin chao cac ban', "a"))
+
+function split1(string, parameter1, limit) {
+        var ketqua = [];
+        var word = "";
+        for (var i = 0; i < string.length; i++) {
+          if (parameter1 == undefined) {
+            return string;
+          } else if (parameter1.length == 0) {
+            console.log("check1");
+            ketqua.push(string[i]);
+          } else {
+            if (string[i] != parameter1) {
+              word += string[i];
+            } else {
+              ketqua.push(word);
+              word = "";
+              console.log("checking" + i, ketqua);
+            }
+          }
+        }
+        ketqua.push(word);
+        console.log("ket qua", ketqua);
+        console.log("check", ketqua.slice(0, limit));
+        return ketqua.slice(0, limit);
+      }
+      var string = "xin chao cac ban";
+      console.log(string.split(" "));
+      console.log(split1("xin chao cac ban", " "));

@@ -12,5 +12,6 @@ def demo_split(string, parameter1) :
             else:
                 result.append(word)
                 word=''
+    result.append(word)
     return result
-print(demo_split('xin chao cac ban ', " "))
+print(demo_split('xin chao cac ban', "a"))
