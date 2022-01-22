@@ -33,3 +33,10 @@ lặp qua list
 for i in list:
 
 '''
+
+def chinhhop(List, a):
+    result =[[x,y,z] for x in List for y in List for z in List]
+    print(result)
+
+chinhhop([1,2,3,4],3)
+    
