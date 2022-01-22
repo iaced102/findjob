@@ -85,7 +85,6 @@ for i in range(len(t)):
 
     if i == len(t) -1:
         a.append(t[index: len(t)])
-
 '''
 
 dicts = {
@@ -94,8 +93,6 @@ dicts = {
     'mouse': 'mèo'
 }
 
-print(dicts.keys())
-print(dicts.values())
 
 '''
 nhập vào các cặp key-value
@@ -105,3 +102,30 @@ def function(**kwargs):
 
 function(a=10, b=20, dog='mèo',)
 '''
+
+
+'''
+def split(base, text):
+    result =[]
+    index=0
+    for i in range(len(base)):
+        if base[i] == text:
+            result.append(base[index: i])
+            index=i+1
+        if i== len(base) -1:
+            result.append(base[index: i+1])
+    print(result)
+
+split('xin chao cac ban', "a")
+'''
+
+def function(**kwargs):
+    keys = list(kwargs.keys())
+    values = list(kwargs.values())
+    result =[]
+    for i in range(len(values)):
+        result.append([keys[i], values[i]])
+    print(result)
+
+
+function(a=10, b=20, dog='mèo', cat= 'chuot')
